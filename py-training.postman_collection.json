@@ -16,7 +16,7 @@
 							"    pm.response.to.have.status(200);",
 							"});",
 							"pm.test(\"Content hello world\", function () {",
-							"    pm.response.to.have.jsonBody(\"Hello, World!\");",
+							"    pm.response.to.have.body(\"Hello, World!\");",
 							"});"
 						],
 						"type": "text/javascript"
