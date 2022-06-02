@@ -20,3 +20,8 @@ clean:
 	rm -rf src/__pycache__
 	rm -rf venv
 
+lint:
+	mypy src/*.py && \
+	black src/ && \
+	flake8 src/ && \
+	isort src/ 
