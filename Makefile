@@ -1,4 +1,4 @@
-FLASK_APP = src/app.py
+FLASK_APP = src/index.py
 VENV = venv
 PYTHON = $(VENV)/bin/python3
 PIP = $(VENV)/bin/pip

@@ -1,205 +1,162 @@
 {
-	"info": {
-		"_postman_id": "c43ac23a-e44e-4739-a6fd-ab31388e75e8",
-		"name": "py-training",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
-	},
-	"item": [
-		{
-			"name": "hello world",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test(\"Status test\", function () {",
-							"    pm.response.to.have.status(200);",
-							"});",
-							"pm.test(\"Content hello world\", function () {",
-							"    pm.response.to.have.body(\"Hello, World!\");",
-							"});"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://127.0.0.1:5000",
-					"protocol": "http",
-					"host": [
-						"127",
-						"0",
-						"0",
-						"1"
-					],
-					"port": "5000"
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "get items",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							""
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://127.0.0.1:5000/items",
-					"protocol": "http",
-					"host": [
-						"127",
-						"0",
-						"0",
-						"1"
-					],
-					"port": "5000",
-					"path": [
-						"items"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "post item",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							""
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"protocolProfileBehavior": {
-				"disabledSystemHeaders": {}
-			},
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n  \"data\": {\n    \"environment\": \"production\",\n    \"body\": {\n      \"telemetry\": [\n        {\n        \"level\": \"info\",\n        \"type\": \"network\",\n        \"source\": \"client\",\n        \"timestamp_ms\": 1500413393557,\n        \"body\": {\n          \"subtype\": \"xhr\",\n          \"method\": \"GET\",\n          \"status_code\": \"200\",\n          \"start_timestamp_ms\": 1500413394557,\n          \"end_timestamp_ms\": 1500413394957\n        }\n      }\n      ],\n\n      \n      \"message\": {\n\n        \"body\": \"Request over threshold of 10 seconds\",\n\n\n        \"route\": \"home#index\",\n        \"time_elapsed\": 15.23\n      }\n    },\n\n    \"level\": \"error\",\n\n    \"timestamp\": 1369188822,\n\n    \"code_version\": \"3da541559918a808c2402bba5012f6c60b27661c\",\n\n    \"platform\": \"linux\",\n\n    \"language\": \"python\",\n\n    \"framework\": \"pyramid\",\n\n    \"context\": \"project#index\",\n\n    \"request\": {\n\n\n      \"method\": \"GET\",\n\n      \"headers\": {\n      },\n\n      \"params\": {\n        \"controller\": \"project\",\n        \"action\": \"index\"\n      },\n\n      \"GET\": {},\n\n      \"query_string\": \"\",\n\n      \"POST\": {},\n\n      \"body\": \"\",\n\n      \"user_ip\": \"100.51.43.14\"\n\n    },\n\n    \"person\": {\n      \"id\": \"12345\",\n\n      \"username\": \"brianr\",\n\n      \"email\": \"brian@rollbar.com\"\n    },\n\n    \"server\": {\n\n      \"cpu\": \"x64\",\n\n      \"host\": \"web4\",\n\n\n      \"branch\": \"master\",\n\n      \"code_version\": \"b6437f45b7bbbb15f5eddc2eace4c71a8625da8c\",\n\n      \"sha\": \"b6437f45b7bbbb15f5eddc2eace4c71a8625da8c\"\n    },\n\n    \"client\": {\n\n      \"cpu\": \"x64\",\n\n      \"javascript\": {\n\n\n        \"code_version\": \"b6437f45b7bbbb15f5eddc2eace4c71a8625da8c\",\n\n        \"source_map_enabled\": false,\n\n        \"guess_uncaught_frames\": false\n\n      }\n    },\n    \"custom\": {},\n    \"fingerprint\": \"50a5ef9dbcf9d0e0af2d4e25338da0d430f20e52\",\n    \"uuid\": \"f81d4fae-7dec-11d0-a765-00a0c91e6bf6\",\n    \"notifier\": {\n      \"version\": \"0.5.5\"\n    }\n  }\n}\n",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://127.0.0.1:5000/items",
-					"protocol": "http",
-					"host": [
-						"127",
-						"0",
-						"0",
-						"1"
-					],
-					"port": "5000",
-					"path": [
-						"items"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "get item",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							""
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"protocolProfileBehavior": {
-				"disabledSystemHeaders": {}
-			},
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://127.0.0.1:5000/items/1263991068",
-					"protocol": "http",
-					"host": [
-						"127",
-						"0",
-						"0",
-						"1"
-					],
-					"port": "5000",
-					"path": [
-						"items",
-						"1263991068"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "patch",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							""
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"protocolProfileBehavior": {
-				"disabledSystemHeaders": {}
-			},
-			"request": {
-				"method": "PUT",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n  \"data\": {\n    \"environment\": \"develoment\"\n  }\n    \n}\n",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://127.0.0.1:5000/items/1263991068",
-					"protocol": "http",
-					"host": [
-						"127",
-						"0",
-						"0",
-						"1"
-					],
-					"port": "5000",
-					"path": [
-						"items",
-						"1263991068"
-					]
-				}
-			},
-			"response": []
-		}
-	]
+  "info": {
+    "_postman_id": "c43ac23a-e44e-4739-a6fd-ab31388e75e8",
+    "name": "py-training",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "hello world",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status test\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "pm.test(\"Content hello world\", function () {",
+              "    pm.response.to.have.body(\"Hello, World!\");",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://127.0.0.1:5000",
+          "protocol": "http",
+          "host": ["127", "0", "0", "1"],
+          "port": "5000"
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "get items",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [""],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://127.0.0.1:5000/items",
+          "protocol": "http",
+          "host": ["127", "0", "0", "1"],
+          "port": "5000",
+          "path": ["items"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "post item",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [""],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "protocolProfileBehavior": {
+        "disabledSystemHeaders": {}
+      },
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"data\": {\n    \"environment\": \"production\",\n    \"body\": {\n      \"telemetry\": [\n        {\n        \"level\": \"info\",\n        \"type\": \"network\",\n        \"source\": \"client\",\n        \"timestamp_ms\": 1500413393557,\n        \"body\": {\n          \"subtype\": \"xhr\",\n          \"method\": \"GET\",\n          \"status_code\": \"200\",\n          \"start_timestamp_ms\": 1500413394557,\n          \"end_timestamp_ms\": 1500413394957\n        }\n      }\n      ],\n\n      \n      \"message\": {\n\n        \"body\": \"Request over threshold of 10 seconds\",\n\n\n        \"route\": \"home#index\",\n        \"time_elapsed\": 15.23\n      }\n    },\n\n    \"level\": \"error\",\n\n    \"timestamp\": 1369188822,\n\n    \"code_version\": \"3da541559918a808c2402bba5012f6c60b27661c\",\n\n    \"platform\": \"linux\",\n\n    \"language\": \"python\",\n\n    \"framework\": \"pyramid\",\n\n    \"context\": \"project#index\",\n\n    \"request\": {\n\n\n      \"method\": \"GET\",\n\n      \"headers\": {\n      },\n\n      \"params\": {\n        \"controller\": \"project\",\n        \"action\": \"index\"\n      },\n\n      \"GET\": {},\n\n      \"query_string\": \"\",\n\n      \"POST\": {},\n\n      \"body\": \"\",\n\n      \"user_ip\": \"100.51.43.14\"\n\n    },\n\n    \"person\": {\n      \"id\": \"12345\",\n\n      \"username\": \"brianr\",\n\n      \"email\": \"brian@rollbar.com\"\n    },\n\n    \"server\": {\n\n      \"cpu\": \"x64\",\n\n      \"host\": \"web4\",\n\n\n      \"branch\": \"master\",\n\n      \"code_version\": \"b6437f45b7bbbb15f5eddc2eace4c71a8625da8c\",\n\n      \"sha\": \"b6437f45b7bbbb15f5eddc2eace4c71a8625da8c\"\n    },\n\n    \"client\": {\n\n      \"cpu\": \"x64\",\n\n      \"javascript\": {\n\n\n        \"code_version\": \"b6437f45b7bbbb15f5eddc2eace4c71a8625da8c\",\n\n        \"source_map_enabled\": false,\n\n        \"guess_uncaught_frames\": false\n\n      }\n    },\n    \"custom\": {},\n    \"fingerprint\": \"50a5ef9dbcf9d0e0af2d4e25338da0d430f20e52\",\n    \"uuid\": \"f81d4fae-7dec-11d0-a765-00a0c91e6bf6\",\n    \"notifier\": {\n      \"version\": \"0.5.5\"\n    }\n  }\n}\n",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://127.0.0.1:5000/items",
+          "protocol": "http",
+          "host": ["127", "0", "0", "1"],
+          "port": "5000",
+          "path": ["items"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "get item",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [""],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "protocolProfileBehavior": {
+        "disabledSystemHeaders": {}
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://127.0.0.1:5000/items/1263991068",
+          "protocol": "http",
+          "host": ["127", "0", "0", "1"],
+          "port": "5000",
+          "path": ["items", "1263991068"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "patch",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [""],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "protocolProfileBehavior": {
+        "disabledSystemHeaders": {}
+      },
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"data\": {\n    \"environment\": \"develoment\"\n  }\n    \n}\n",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://127.0.0.1:5000/items/1263991068",
+          "protocol": "http",
+          "host": ["127", "0", "0", "1"],
+          "port": "5000",
+          "path": ["items", "1263991068"]
+        }
+      },
+      "response": []
+    }
+  ]
 }
