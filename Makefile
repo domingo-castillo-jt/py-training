@@ -11,7 +11,7 @@ run: $(VENV)/bin/activate
 	$(PYTHON) -m flask run
 
 get_items: $(VENV)/bin/activate
-	$(PYTHON) -m flask get-all-items
+	$(PYTHON) -m flask cli get-all-items
 
 test:
 	$(PYTHON) -m pytest

@@ -1,7 +1,7 @@
 from flask import Flask
 from src.core.domain.entities.item import Item
-from src.interface.api.api import api_routes
-from src.interface.api.cli import cli_routes
+from src.interface.api.api import api
+from src.interface.api.cli import cli
 
 app = Flask(__name__)
 
@@ -31,7 +31,7 @@ def init_rollbar() -> None:
     got_request_exception.connect(rollbar.contrib.flask.report_exception, app)
 
 
-api_routes(app)
-cli_routes(app)
+app.register_blueprint(api)
+app.register_blueprint(cli)
 
 
