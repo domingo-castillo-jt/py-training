@@ -62,8 +62,3 @@ def put_item(id: int) -> str:
         headers={"X-Rollbar-Access-Token": "6408eab7199940528fd17e193b7c7f5e"},
     )
     return x.text
-
-
-@app.route("/items/all")
-def get_all_items_test() -> str:
-    return get_all_items_use_case()
