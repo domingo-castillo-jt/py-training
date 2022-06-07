@@ -45,8 +45,7 @@ def get_items() -> str:
 
 @app.route("/items/<int:id>")
 def get_item(id: int) -> str:
-    return get_one_item_use_case()
-
+    return get_one_item_use_case(id)
 
 
 @app.route('/items', methods=['POST'])
