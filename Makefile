@@ -11,7 +11,7 @@ run: $(VENV)/bin/activate
 	$(PYTHON) -m flask run
 
 get_items: $(VENV)/bin/activate
-	$(PYTHON) src/core/use_cases/get_all_items_use_case.py
+	$(PYTHON) -m flask get-all-items
 
 test:
 	$(PYTHON) -m pytest

@@ -1,3 +1,4 @@
+import click
 from src.core.use_cases.get_all_items_use_case import get_all_items_use_case
 from src.core.use_cases.get_one_item_use_case import get_one_item_use_case
 from flask import Flask, request
@@ -62,3 +63,7 @@ def put_item(id: int) -> str:
         headers={"X-Rollbar-Access-Token": "6408eab7199940528fd17e193b7c7f5e"},
     )
     return x.text
+
+@app.cli.command("get-all-items")
+def get_all_items():
+    print(get_all_items_use_case())
