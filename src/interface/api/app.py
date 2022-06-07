@@ -51,7 +51,7 @@ def get_item(id: int) -> str:
 
 @app.route('/items', methods=['POST'])
 def post_item():
-    x = requests.post("http://api.rollbar.com/api/1/item/", data=request.data, headers={"X-Rollbar-Access-Token":"3c4fed617abb463caab073397f26507a"})
+    x = requests.post("http://api.rollbar.com/api/1/item/", data=request.data, headers={"X-Rollbar-Access-Token":os.environ.get("ROLLBAR_POST_SERVER_TOKEN")})
     return x.text
 
 
@@ -60,7 +60,7 @@ def put_item(id: int) -> str:
     x = requests.patch(
         f"http://api.rollbar.com/api/1/item/{id}",
         data=request.data,
-        headers={"X-Rollbar-Access-Token": "6408eab7199940528fd17e193b7c7f5e"},
+        headers={"X-Rollbar-Access-Token": os.environ.get("ROLLBAR_WRITE_TOKEN")},
     )
     return x.text
 
