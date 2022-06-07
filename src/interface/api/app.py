@@ -40,11 +40,7 @@ def hello_world() -> str:
 
 @app.route("/items")
 def get_items() -> str:
-    x = requests.get(
-        "http://api.rollbar.com/api/1/items",
-        headers={"X-Rollbar-Access-Token": "29b05bd130e14b27822d17787597ce72"},
-    )
-    return x.text
+    return get_all_items_use_case()
 
 
 @app.route("/items/<int:id>")
@@ -53,9 +49,10 @@ def get_item(id: int) -> str:
 
 
 
-@app.route("/items", methods=["POST"])
-def post_item() -> List[Item]:
-    return get_all_items_use_case()
+@app.route('/items', methods=['POST'])
+def post_item():
+    x = requests.post("http://api.rollbar.com/api/1/item/", data=request.data, headers={"X-Rollbar-Access-Token":"3c4fed617abb463caab073397f26507a"})
+    return x.text
 
 
 @app.route("/items/<int:id>", methods=["PUT", "PATCH"])
