@@ -1,14 +1,14 @@
-from flask import Flask
-from src.core.domain.entities.item import Item
+import os
+
+import rollbar  # type: ignore
+import rollbar.contrib.flask  # type: ignore
+from flask import Flask, got_request_exception
+
 from src.interface.api.api import api
 from src.interface.api.cli import cli
 
 app = Flask(__name__)
 
-import os
-import rollbar  # type: ignore
-import rollbar.contrib.flask  # type: ignore
-from flask import got_request_exception
 
 write_token = "6408eab7199940528fd17e193b7c7f5e"
 
@@ -33,5 +33,3 @@ def init_rollbar() -> None:
 
 app.register_blueprint(api)
 app.register_blueprint(cli)
-
-

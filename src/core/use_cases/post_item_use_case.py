@@ -1,6 +1,5 @@
 from src.infrastructure.persistance.item_api_v1_repository import ItemApiV1Repository
-from src.core.domain.entities.item import Item
 
-def post_item_use_case(id: int) -> Item:
-    return ItemApiV1Repository().post(id)
 
+def post_item_use_case(item: dict) -> dict:
+    return dict(ItemApiV1Repository().post(item))
