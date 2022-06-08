@@ -1,6 +1,6 @@
-from src.infrastructure.persistance.item_datasource import ItemDatasource
+from src.infrastructure.persistance.item_api_v1_repository import ItemApiV1Repository
 from src.core.domain.entities.item import Item
 
 def post_item_use_case(id: int) -> Item:
-    return ItemDatasource().post(id)
+    return ItemApiV1Repository().post(id)
 

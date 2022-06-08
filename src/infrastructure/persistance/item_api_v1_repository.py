@@ -5,7 +5,7 @@ from src.core.domain.entities.item import Item
 import requests
 
 
-class ItemDatasource(ItemRepository):
+class ItemApiV1Repository(ItemRepository):
     def get_all(self) -> List[Item]:
         x = requests.get(
             "http://api.rollbar.com/api/1/items",
