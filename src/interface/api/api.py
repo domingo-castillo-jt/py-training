@@ -1,7 +1,9 @@
-from flask import Blueprint
+from flask import Blueprint, request
 import requests
 from src.core.use_cases.get_all_items_use_case import get_all_items_use_case
 from src.core.use_cases.get_one_item_use_case import get_one_item_use_case
+from src.core.use_cases.patch_item_use_case import patch_item_use_case
+from src.core.use_cases.post_item_use_case import post_item_use_case
 
 api = Blueprint('api', __name__)
                    
@@ -22,15 +24,9 @@ def get_item(id: int) -> str:
 
 @api.route('/items', methods=['POST'])
 def post_item()-> str:
-    x = requests.post("http://api.rollbar.com/api/1/item/", data=request.data, headers={"X-Rollbar-Access-Token":os.environ.get("ROLLBAR_POST_SERVER_TOKEN")})
-    return x.text
+    return post_item_use_case(request.data)
 
 
 @api.route("/items/<int:id>", methods=["PUT", "PATCH"])
-def put_item(id: int) -> str:
-    x = requests.patch(
-        f"http://api.rollbar.com/api/1/item/{id}",
-        data=request.data,
-        headers={"X-Rollbar-Access-Token": os.environ.get("ROLLBAR_WRITE_TOKEN")},
-    )
-    return x.text
+def patch_item(id: int) -> str:
+    return patch_item_use_case(id,request.data)

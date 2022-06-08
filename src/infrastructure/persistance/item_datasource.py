@@ -19,3 +19,15 @@ class ItemDatasource(ItemRepository):
             headers={"X-Rollbar-Access-Token":os.environ.get("ROLLBAR_READ_TOKEN")},
         )
         return x.text
+
+    def post(self, item:Item) -> Item:
+        x = requests.post("http://api.rollbar.com/api/1/item/", data=item, headers={"X-Rollbar-Access-Token":os.environ.get("ROLLBAR_POST_SERVER_TOKEN")})
+        return x.text
+
+    def patch(self, id:int, item:Item) -> Item:
+        x = requests.patch(
+            f"http://api.rollbar.com/api/1/item/{id}",
+            data=item,
+            headers={"X-Rollbar-Access-Token": os.environ.get("ROLLBAR_WRITE_TOKEN")},
+        )
+        return x.text

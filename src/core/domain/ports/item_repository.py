@@ -11,3 +11,9 @@ class ItemRepository(metaclass=ABCMeta):
     @abstractmethod
     def get_one(self,id:int) -> Item:
         raise NotImplementedError
+    @abstractmethod
+    def post(self,item:Item) -> Item:
+        raise NotImplementedError
+    @abstractmethod
+    def patch(self,id:int, item:Item) -> Item:
+        raise NotImplementedError
