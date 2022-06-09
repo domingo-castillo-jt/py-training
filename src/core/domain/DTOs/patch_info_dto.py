@@ -1,7 +1,7 @@
 from enum import Enum
 from typing import Optional
 
-from pydantic import BaseModel, constr
+from pydantic import BaseModel, ConstrainedStr
 from pydantic_factories import ModelFactory
 
 
@@ -19,10 +19,19 @@ class LevelEnum(str, Enum):
     DEBUG = "debug"
 
 
+class ConstrMax40(ConstrainedStr):
+    max_length = 40
+
+
+class ConstrMax255Min1(ConstrainedStr):
+    max_length = 255
+    min_length = 1
+
+
 class PatchInfo(BaseModel):
     status: Optional[StatusEnum]
-    resolved_in_version: Optional[constr(max_length=40)]  # if status = resolved
-    title: Optional[constr(min_length=1, max_length=255)]
+    resolved_in_version: Optional[ConstrMax40]  # if status = resolved
+    title: Optional[ConstrMax255Min1]
     level: Optional[LevelEnum]
     assigned_user_id: Optional[int]
 
