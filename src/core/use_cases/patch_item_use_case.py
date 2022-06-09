@@ -1,4 +1,4 @@
-from src.core.domain.DTOs.patch_dto import PatchInfo
+from src.core.domain.DTOs.patch_info_dto import PatchInfo
 from src.infrastructure.persistance.item_api_v1_repository import ItemApiV1Repository
 
 

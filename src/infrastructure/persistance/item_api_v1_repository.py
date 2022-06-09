@@ -4,7 +4,7 @@ from typing import List
 
 import requests
 
-from src.core.domain.DTOs.patch_dto import PatchInfo
+from src.core.domain.DTOs.patch_info_dto import PatchInfo
 from src.core.domain.entities.item import Item
 from src.core.domain.ports.item_repository import ItemRepository
 

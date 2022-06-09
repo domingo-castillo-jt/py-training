@@ -1,7 +1,7 @@
 from abc import ABCMeta, abstractmethod
 from typing import List
 
-from src.core.domain.DTOs.patch_dto import PatchInfo
+from src.core.domain.DTOs.patch_info_dto import PatchInfo
 from src.core.domain.entities.item import Item
 
 
