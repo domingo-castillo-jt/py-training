@@ -1,3 +1,4 @@
+from src.core.domain.DTOs.patch_info_dto import PatchInfo, PatchInfoFactory
 from src.core.domain.entities.item import ItemFactory
 from src.infrastructure.persistance.item_api_v1_repository import ItemApiV1Repository
 
@@ -19,4 +20,11 @@ def test_get_one_returns_one_item(requests_mock):
     requests_mock.get(f"http://api.rollbar.com/api/1/item/{id}", json=response_mock)
     assert(ItemApiV1Repository().get_one(id).id == id)
     assert(ItemApiV1Repository().get_one(id) == item_fixture)
+
+def test_get_one_returns_one_item(requests_mock):
+    id = 1
+    patch_info_fixture = PatchInfoFactory.build()
+    response_mock = { "result": dict(patch_info_fixture)}
+    requests_mock.patch(f"http://api.rollbar.com/api/1/item/{id}", json=response_mock)
+    assert(ItemApiV1Repository().patch(id, patch_info_fixture) == patch_info_fixture)
 

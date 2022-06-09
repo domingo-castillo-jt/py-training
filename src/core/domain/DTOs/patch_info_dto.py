@@ -2,6 +2,7 @@ from enum import Enum
 from typing import Optional
 
 from pydantic import BaseModel, constr
+from pydantic_factories import ModelFactory
 
 
 class status_enum(str, Enum):
@@ -24,3 +25,7 @@ class PatchInfo(BaseModel):
     title: Optional[constr(min_length=1, max_length=255)]
     level: Optional[level_enum]
     assigned_user_id: Optional[int]
+
+
+class PatchInfoFactory(ModelFactory):
+    __model__ = PatchInfo

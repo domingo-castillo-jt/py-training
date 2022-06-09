@@ -42,10 +42,10 @@ class ItemApiV1Repository(ItemRepository):
         )
         return Item(**response.json()["result"])
 
-    def patch(self, id: int, item: PatchInfo) -> PatchInfo:
+    def patch(self, id: int, patch_info: PatchInfo) -> PatchInfo:
         response = requests.patch(
             f"http://api.rollbar.com/api/1/item/{id}",
-            data=json.dumps(item),
+            data=json.dumps(dict(patch_info)),
             headers={
                 "X-Rollbar-Access-Token": os.environ.get("ROLLBAR_WRITE_TOKEN", "")
             },

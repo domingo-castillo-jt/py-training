@@ -1,5 +1,6 @@
 from flask import Blueprint, request
 
+from src.core.domain.DTOs.patch_info_dto import PatchInfo
 from src.core.use_cases.get_all_items_use_case import get_all_items_use_case
 from src.core.use_cases.get_one_item_use_case import get_one_item_use_case
 from src.core.use_cases.patch_item_use_case import patch_item_use_case
@@ -30,4 +31,4 @@ def post_item() -> dict:
 
 @api.route("/items/<int:id>", methods=["PUT", "PATCH"])
 def patch_item(id: int) -> dict:
-    return patch_item_use_case(id, dict(request.json if request.json else {}))
+    return patch_item_use_case(id, PatchInfo(**request.json if request.json else {}))
