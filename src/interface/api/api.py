@@ -1,6 +1,6 @@
 from flask import Blueprint, request
 
-from src.core.domain.DTOs.patch_info_dto import PatchInfo
+from src.core.domain.dto.patch_info_dto import PatchInfo
 from src.core.use_cases.get_all_items_use_case import get_all_items_use_case
 from src.core.use_cases.get_one_item_use_case import get_one_item_use_case
 from src.core.use_cases.patch_item_use_case import patch_item_use_case

@@ -1,6 +1,6 @@
 from pydantic_factories import ModelFactory
 
-from src.core.domain.DTOs.patch_info_dto import PatchInfo
+from src.core.domain.dto.patch_info_dto import PatchInfo
 from src.core.domain.entities.item import Item
 
 

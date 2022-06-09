@@ -1,5 +1,5 @@
 from src.infrastructure.persistance.item_api_v1_repository import ItemApiV1Repository
-from tests.core.domain.dtos.factories import PatchInfoFactory, ItemFactory
+from tests.core.domain.dto.factories import PatchInfoFactory, ItemFactory
 
 def test_get_all_returns_item_list(requests_mock):
     item_quantity = 4
