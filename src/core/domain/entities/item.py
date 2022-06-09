@@ -30,6 +30,3 @@ class Item(BaseModel):
     group_item_id: Optional[int]
     group_status: Optional[int]
 
-
-class ItemFactory(ModelFactory):
-    __model__ = Item

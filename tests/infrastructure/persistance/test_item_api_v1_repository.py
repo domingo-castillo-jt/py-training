@@ -1,6 +1,5 @@
-from src.core.domain.DTOs.patch_info_dto import PatchInfo, PatchInfoFactory
-from src.core.domain.entities.item import ItemFactory
 from src.infrastructure.persistance.item_api_v1_repository import ItemApiV1Repository
+from tests.core.domain.dtos.factories import PatchInfoFactory, ItemFactory
 
 def test_get_all_returns_item_list(requests_mock):
     item_quantity = 4
@@ -10,7 +9,6 @@ def test_get_all_returns_item_list(requests_mock):
     item_response =ItemApiV1Repository().get_all()
     assert(len(item_response) == item_quantity)
     for index, item in enumerate(item_response):
-        print("HOLAAA")
         assert(item.id == index)
 
 def test_get_one_returns_one_item(requests_mock):

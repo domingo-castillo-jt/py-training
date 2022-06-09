@@ -2,7 +2,6 @@ from enum import Enum
 from typing import Optional
 
 from pydantic import BaseModel, ConstrainedStr
-from pydantic_factories import ModelFactory
 
 
 class StatusEnum(str, Enum):
@@ -36,5 +35,3 @@ class PatchInfo(BaseModel):
     assigned_user_id: Optional[int]
 
 
-class PatchInfoFactory(ModelFactory):
-    __model__ = PatchInfo
