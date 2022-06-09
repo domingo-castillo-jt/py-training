@@ -1,7 +1,7 @@
 from enum import Enum
 from typing import Optional
 
-from pydantic import BaseModel, ConstrainedStr
+from pydantic import BaseModel, ConstrainedStr, validator
 
 
 class StatusEnum(str, Enum):
@@ -33,3 +33,10 @@ class PatchInfo(BaseModel):
     title: Optional[ConstrMax255Min1]
     level: Optional[LevelEnum]
     assigned_user_id: Optional[int]
+    @validator('resolved_in_version')
+    def optional_if_status(cls, v, values, **kwargs):
+        if 'status' in values and values['status'] != "resolved" and v is not None:
+            raise ValueError("Should be empty if status not 'resolved'")
+
+
+
