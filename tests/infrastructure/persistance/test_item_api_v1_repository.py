@@ -27,11 +27,4 @@ def test_patch_item_returns_patch_info(requests_mock):
     requests_mock.patch(f"http://api.rollbar.com/api/1/item/{id}", json=response_mock)
     assert(ItemApiV1Repository().patch(id, patch_info_fixture) == patch_info_fixture)
 
-def test_post_item_returns_item():
-    id = 1
-    item_fixture = ItemFactory.build(id = id)
-    # response_mock = { "result": dict(item_fixture)}
-    # requests_mock.get(f"http://api.rollbar.com/api/1/item/{id}", json=response_mock)
-    print(json.dumps(dict(item_fixture)))
-    assert(ItemApiV1Repository().post(dict(item_fixture)) == item_fixture)
 
