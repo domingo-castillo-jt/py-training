@@ -1,7 +1,6 @@
 from typing import Optional
 
 from pydantic import BaseModel
-from pydantic_factories import ModelFactory
 
 
 class Item(BaseModel):
@@ -29,4 +28,3 @@ class Item(BaseModel):
     assigned_user_id: Optional[int]
     group_item_id: Optional[int]
     group_status: Optional[int]
-

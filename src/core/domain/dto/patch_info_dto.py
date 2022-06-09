@@ -33,5 +33,3 @@ class PatchInfo(BaseModel):
     title: Optional[ConstrMax255Min1]
     level: Optional[LevelEnum]
     assigned_user_id: Optional[int]
-
-

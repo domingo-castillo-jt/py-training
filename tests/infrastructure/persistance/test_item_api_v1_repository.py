@@ -1,3 +1,4 @@
+import json
 from src.infrastructure.persistance.item_api_v1_repository import ItemApiV1Repository
 from tests.core.domain.dto.factories import PatchInfoFactory, ItemFactory
 
@@ -19,10 +20,18 @@ def test_get_one_returns_one_item(requests_mock):
     assert(ItemApiV1Repository().get_one(id).id == id)
     assert(ItemApiV1Repository().get_one(id) == item_fixture)
 
-def test_get_one_returns_one_item(requests_mock):
+def test_patch_item_returns_patch_info(requests_mock):
     id = 1
     patch_info_fixture = PatchInfoFactory.build()
     response_mock = { "result": dict(patch_info_fixture)}
     requests_mock.patch(f"http://api.rollbar.com/api/1/item/{id}", json=response_mock)
     assert(ItemApiV1Repository().patch(id, patch_info_fixture) == patch_info_fixture)
+
+def test_post_item_returns_item():
+    id = 1
+    item_fixture = ItemFactory.build(id = id)
+    # response_mock = { "result": dict(item_fixture)}
+    # requests_mock.get(f"http://api.rollbar.com/api/1/item/{id}", json=response_mock)
+    print(json.dumps(dict(item_fixture)))
+    assert(ItemApiV1Repository().post(dict(item_fixture)) == item_fixture)
 
