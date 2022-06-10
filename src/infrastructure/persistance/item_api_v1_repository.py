@@ -4,6 +4,7 @@ from typing import List
 
 import requests
 
+from src.core.domain.dto.patch_info_dto import PatchInfo
 from src.core.domain.entities.item import Item
 from src.core.domain.ports.item_repository import ItemRepository
 
@@ -41,12 +42,12 @@ class ItemApiV1Repository(ItemRepository):
         )
         return Item(**response.json()["result"])
 
-    def patch(self, id: int, item: dict) -> dict:
+    def patch(self, id: int, patch_info: PatchInfo) -> PatchInfo:
         response = requests.patch(
             f"http://api.rollbar.com/api/1/item/{id}",
-            data=json.dumps(item),
+            data=json.dumps(dict(patch_info)),
             headers={
                 "X-Rollbar-Access-Token": os.environ.get("ROLLBAR_WRITE_TOKEN", "")
             },
         )
-        return dict(response.json()["result"])
+        return PatchInfo(**response.json()["result"])

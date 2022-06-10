@@ -1,6 +1,7 @@
 from abc import ABCMeta, abstractmethod
 from typing import List
 
+from src.core.domain.dto.patch_info_dto import PatchInfo
 from src.core.domain.entities.item import Item
 
 
@@ -18,5 +19,5 @@ class ItemRepository(metaclass=ABCMeta):
         raise NotImplementedError
 
     @abstractmethod
-    def patch(self, id: int, item: dict) -> dict:
+    def patch(self, id: int, item: PatchInfo) -> PatchInfo:
         raise NotImplementedError
